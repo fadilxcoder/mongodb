@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  php-fpm:
+    container_name: fx_php_fpm
+    build:
+      context: ./php-fpm
+    volumes:
+      - ../src:/var/www/html
+
+  nginx:
+    container_name: fx_nginx
+    build:
+      context: ./nginx
+    volumes:
+      - ../src:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites/:/etc/nginx/sites-available
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+    ports:
+      - "8881:80"
+      - "8882:443"
+    depends_on:
+      - php-fpm
+
+  database:
+    container_name: fx_mongo_database
+    build:
+      context: ./mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=mydb
+      - MONGO_INITDB_ROOT_USERNAME=myuser
+      - MONGO_INITDB_ROOT_PASSWORD=docker
+    ports:
+      - "27017:27017"
+    hostname: mongodb
+    volumes:
+      - ./mongodb/mongod.conf:/etc/mongod.conf
+      - ./mongodb/logs:/var/log/mongodb/
+      - ./mongodb/db:/var/lib/mongodb

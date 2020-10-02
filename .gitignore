@@ -1,0 +1,4 @@
+/.c9
+/src/vendor/*
+/docker/mongodb/db/*
+/docker/mongodb/logs/*
