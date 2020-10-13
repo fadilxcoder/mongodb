@@ -65,14 +65,47 @@
                 'date_created' => date('Y/m/d H:i:s'),
             ];
 
-            
             $combineArray = $insertArr + $randArray[rand(1,6)];
-            
             $usersCollection = $db->users;
             
-            $insertOneResult = $usersCollection->insertOne([$combineArray]);
-        
-            var_dump($insertOneResult->getInsertedId());
+            // var_dump($combineArray);
+            
+            // $insertOneResult = $usersCollection->insertOne($combineArray);
+            
+            $data = $usersCollection->find([]);
+            
+            foreach($data as $_d):
+                // var_dump($_d);
+            endforeach;
+            
+            $some = $usersCollection->find(
+                [
+                    'v3' => 3,
+                ]
+            );
+            
+            // var_dump($some);
+            
+            foreach($some as $_d):
+                // var_dump($_d->username);
+                // var_dump($_d['username']);
+            endforeach;
+            
+            $insertManyResult = $usersCollection->insertMany([
+                [
+                    'username' => 'admin',
+                    'email' => 'admin@example.com',
+                    'name' => 'Admin User',
+                ],
+                [
+                    'username' => 'test',
+                    'email' => 'test@example.com',
+                    'name' => 'Test User',
+                ],
+            ]);
+            
+            // $insertOneResult = $usersCollection->insertOne(['_id' => 1, 'name' => 'Alice']);
+            
         ?>
     </body>
 </html>

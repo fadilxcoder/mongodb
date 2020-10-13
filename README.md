@@ -4,7 +4,7 @@
 - 2 files needed for mongodb : `Docker` & `mongod.conf` - **Important settings in mongod.conf (bindIp, dbPath, path)**
 - 2 folders needed for mongodb : `db` & `logs`
  
-## Resources
+## Third party
 
 - mongo-gui (Viewing MongoDB) - https://www.npmjs.com/package/mongo-gui
 
@@ -28,8 +28,13 @@
 ## Start application
 
 - Start docker by `docker-compose up`
-- Start NGROK (App) by `ngrok http 8881` *where 8881 is port*
+- Start NGROK & lanch App by `ngrok http 8881` *where 8881 is port*
 
 ## Start Mongo GUI
 
-- After containers are UP, Start NGROK (Mongo GUI) by `nngrok http 4321` *where 4321 is port*
+- After containers are UP, Start NGROK (Mongo GUI) by `ngrok http 4321` *where 4321 is port*
+ 
+## Resources
+
+- https://docs.mongodb.com/manual/crud/ (MongoDB CRUD Operations)
+
