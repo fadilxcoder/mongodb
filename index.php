@@ -78,7 +78,7 @@
             
             $data = $usersCollection->find([]);
             
-			var_dump($data); die;
+			// var_dump($data); die;
 			
             foreach($data as $_d):
                 //var_dump($_d);
@@ -86,17 +86,18 @@
             
             $some = $usersCollection->find(
                 [
-                    'v3' => 3,
+                    'v1' => 3,
                 ]
             );
             
-            // var_dump($some);
+            var_dump($some);
             
             foreach($some as $_d):
                 // var_dump($_d->username);
                 // var_dump($_d['username']);
             endforeach;
             
+			/*
             $insertManyResult = $usersCollection->insertMany([
                 [
                     'username' => 'admin',
@@ -109,6 +110,7 @@
                     'name' => 'Test User',
                 ],
             ]);
+			*/
             
             // $insertOneResult = $usersCollection->insertOne(['_id' => 1, 'name' => 'Alice']);
             
