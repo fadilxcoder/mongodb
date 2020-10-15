@@ -79,6 +79,14 @@
 			
 			try {
 				$usersCollection->insertOne($combineArray);
+				var_dump($db->listDatabases);
+				
+				$data = $usersCollection->find([]);
+            
+				foreach($data as $_d):
+					var_dump($_d);
+				endforeach;
+				
 			} catch(MongoCursorException $e) {
 				/* handle the exception */
 				var_dump($e);
