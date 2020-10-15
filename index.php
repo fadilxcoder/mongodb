@@ -11,7 +11,7 @@
 	zzz
         <?php 
 		
-		echo "dev...";die;
+			var_dump( __DIR__ . '/vendor/autoload.php');
 
             require_once __DIR__ . '/vendor/autoload.php';
             
