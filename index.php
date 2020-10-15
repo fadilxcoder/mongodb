@@ -10,12 +10,11 @@
     <body>
 	zzz
         <?php 
-		
-			var_dump( __DIR__ . '/vendor/autoload.php');
 
             require_once __DIR__ . '/vendor/autoload.php';
             
             // $db = (new MongoDB\Client('mongodb://myuser:docker@172.19.0.1:27017'))->mydb;
+			var_dump(new MongoDB\Client());
 			$db = (new MongoDB\Client())->mydb;
 			var_dump($db->listDatabases());
             
