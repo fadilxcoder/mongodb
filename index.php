@@ -68,6 +68,7 @@
 
             $combineArray = $insertArr + $randArray[rand(1,6)];
             $usersCollection = $db->users;
+			var_dump($usersCollection); die;
             
             // var_dump($combineArray);
             
