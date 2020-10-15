@@ -68,51 +68,18 @@
 
             $combineArray = $insertArr + $randArray[rand(1,6)];
             $usersCollection = $db->users;
-			// var_dump($usersCollection); die;
+			// var_dump($usersCollection);
             
-            var_dump($combineArray);
+            // var_dump($combineArray);
             
-            $insertOneResult = $usersCollection->insertOne($combineArray);
+            // $insertOneResult = $usersCollection->insertOne($combineArray);
 			
-			// var_dump($insertOneResult);
-            
-            $data = $usersCollection->find([]);
-            
-			// var_dump($data); die;
-			
-            foreach($data as $_d):
-                //var_dump($_d);
-            endforeach;
-            
-            $some = $usersCollection->find(
-                [
-                    'v1' => 3,
-                ]
-            );
-            
-            var_dump($some);
-            
-            foreach($some as $_d):
-                // var_dump($_d->username);
-                // var_dump($_d['username']);
-            endforeach;
-            
-			/*
-            $insertManyResult = $usersCollection->insertMany([
-                [
-                    'username' => 'admin',
-                    'email' => 'admin@example.com',
-                    'name' => 'Admin User',
-                ],
-                [
-                    'username' => 'test',
-                    'email' => 'test@example.com',
-                    'name' => 'Test User',
-                ],
-            ]);
-			*/
-            
-            // $insertOneResult = $usersCollection->insertOne(['_id' => 1, 'name' => 'Alice']);
+			try {
+				$usersCollection->insertOne($combineArray);
+			} catch(MongoCursorException $e) {
+				/* handle the exception */
+				var_dump($e);
+			}
             
         ?>
     </body>
