@@ -70,11 +70,11 @@
             $usersCollection = $db->users;
 			// var_dump($usersCollection); die;
             
-            // var_dump($combineArray);
+            var_dump($combineArray);
             
             $insertOneResult = $usersCollection->insertOne($combineArray);
 			
-			var_dump($insertOneResult);
+			// var_dump($insertOneResult);
             
             $data = $usersCollection->find([]);
             
