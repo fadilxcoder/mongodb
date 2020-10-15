@@ -8,15 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-	zzz
         <?php 
 
             require_once __DIR__ . '/vendor/autoload.php';
             
             // $db = (new MongoDB\Client('mongodb://myuser:docker@172.19.0.1:27017'))->mydb;
-			var_dump(new MongoDB\Client());
+
 			$db = (new MongoDB\Client())->mydb;
-			var_dump($db->listDatabases());
+			var_dump($db);
             
             $randArray = [
                 [
