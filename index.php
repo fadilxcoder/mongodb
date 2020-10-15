@@ -75,7 +75,7 @@
             $data = $usersCollection->find([]);
             
             foreach($data as $_d):
-                // var_dump($_d);
+                var_dump($_d);
             endforeach;
             
             $some = $usersCollection->find(
@@ -84,7 +84,7 @@
                 ]
             );
             
-            // var_dump($some);
+            var_dump($some);
             
             foreach($some as $_d):
                 // var_dump($_d->username);
