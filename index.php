@@ -8,7 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+	zzz
         <?php 
+		
+		echo "dev...";die;
 
             require_once __DIR__ . '/vendor/autoload.php';
             
