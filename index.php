@@ -72,16 +72,9 @@
 
             $combineArray = $insertArr + $randArray[rand(1,6)];
             $usersCollection = $db->users;
-			// var_dump($usersCollection);
-            
-            // var_dump($combineArray);
-            
-            // $insertOneResult = $usersCollection->insertOne($combineArray);
-			
+
 			try {
 				$usersCollection->insertOne($combineArray);
-				var_dump($db->listDatabases);
-				
 				$data = $usersCollection->find([]);
             
 				foreach($data as $_d):
