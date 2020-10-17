@@ -1,6 +1,5 @@
 {
     "require": {
-        "tracy/tracy": "^2.7",
         "mongodb/mongodb": "^1.7"
     }
 }

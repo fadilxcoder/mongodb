@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <pre>
         <?php 
 
 			ini_set('display_errors', 1);
@@ -15,9 +16,6 @@
 			error_reporting(E_ALL);
 
             require_once __DIR__ . '/vendor/autoload.php';
-
-            use Tracy\Debugger as Debugger;
-            Debugger::enable(Debugger::DEVELOPMENT);
             
             $db = (new MongoDB\Client('mongodb+srv://heroku-usr:XOwbCWtclBzXAK5t@gfx-cluster.hl29j.mongodb.net'))->mydb;
             
@@ -74,21 +72,29 @@
 
             $combineArray = $insertArr + $randArray[rand(1,6)];
             $usersCollection = $db->users;
-
+			// var_dump($usersCollection);
+            
+            // var_dump($combineArray);
+            
+            // $insertOneResult = $usersCollection->insertOne($combineArray);
+			
 			try {
 				$usersCollection->insertOne($combineArray);
-				dump($db->listDatabases);
+				var_dump($db->listDatabases);
 				
 				$data = $usersCollection->find([]);
             
 				foreach($data as $_d):
-					dump($_d);
+					var_dump($_d);
 				endforeach;
 				
 			} catch(MongoCursorException $e) {
-				dump($e);
+				/* handle the exception */
+				var_dump($e);
 			}
+            
         ?>
+        </pre>
     </body>
 </html>
 
