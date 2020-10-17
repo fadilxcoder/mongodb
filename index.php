@@ -15,6 +15,9 @@
 			error_reporting(E_ALL);
 
             require_once __DIR__ . '/vendor/autoload.php';
+
+            use Tracy\Debugger as Debugger;
+            Debugger::enable(Debugger::DEVELOPMENT);
             
             $db = (new MongoDB\Client('mongodb+srv://heroku-usr:XOwbCWtclBzXAK5t@gfx-cluster.hl29j.mongodb.net'))->mydb;
             
@@ -71,27 +74,20 @@
 
             $combineArray = $insertArr + $randArray[rand(1,6)];
             $usersCollection = $db->users;
-			// var_dump($usersCollection);
-            
-            // var_dump($combineArray);
-            
-            // $insertOneResult = $usersCollection->insertOne($combineArray);
-			
+
 			try {
 				$usersCollection->insertOne($combineArray);
-				var_dump($db->listDatabases);
+				dump($db->listDatabases);
 				
 				$data = $usersCollection->find([]);
             
 				foreach($data as $_d):
-					var_dump($_d);
+					dump($_d);
 				endforeach;
 				
 			} catch(MongoCursorException $e) {
-				/* handle the exception */
-				var_dump($e);
+				dump($e);
 			}
-            
         ?>
     </body>
 </html>
