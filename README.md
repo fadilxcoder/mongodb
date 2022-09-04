@@ -38,3 +38,11 @@
 
 - https://docs.mongodb.com/manual/crud/ (MongoDB CRUD Operations)
 
+## MongoDB Atlas / Windows
+
+- Windows DLL : https://pecl.php.net/package/mongodb
+- Download, rename file `.pem` to `.cer` and install : https://letsencrypt.org/certs/lets-encrypt-r3.pem
+- https://www.mongodb.com/docs/manual/reference/connection-string/ (Connection query parameters options)
+- https://cloud.mongodb.com/ - DB
+- **DB settings** : `(new MongoDB\Client('mongodb+srv://xXxXxXxX:XxXxXxXxXxXxXXx@CLUSTER.xXxXxX.mongodb.net'))->my_database_name;`
+
